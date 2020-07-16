@@ -12,6 +12,18 @@ const Search = () => {
         data: {}
     })
 
+    const perPage = 10;
+    let numPages = Math.ceil(search.data?.total_count / perPage);
+    
+    // for pagination
+    const pageNumbers = []
+    for(let i = 1; i <= numPages; i++) {
+        if(numPages > 100) {
+            numPages = 100;
+        }
+        pageNumbers.push(i)
+    }
+
     const handleChange = e => {
         setSearch({
             ...search,
@@ -26,21 +38,22 @@ const Search = () => {
             data: {}
         })
     }
-    const handleSubmit = e => {
+    const  handleSubmit = e => {
         e.preventDefault()
         search.dropDown === 'repos' ? 
             // check whether dropdown is repos or users, 
             // and then make a call to their respective URL's
 
-            axios.get(`https://api.github.com/search/repositories?q=${search.searchTerm}&page=${search.page}&per_page=10`)
+            axios.get(`https://api.github.com/search/repositories?q=${search.searchTerm}&page=${search.page}&per_page=${perPage}`)
             .then(res => {
                 setSearch({...search, data: res.data});
+                console.log(res)
             })
             .catch(error => {
                 console.log(error)
             }) :
             
-            axios.get(`https://api.github.com/search/users?q=${search.searchTerm}&page=${search.page}&per_page=10`)
+            axios.get(`https://api.github.com/search/users?q=${search.searchTerm}&page=${search.page}&per_page=${perPage}`)
             .then(res => {
                 setSearch({...search, data: res.data});
             })
@@ -67,7 +80,19 @@ const Search = () => {
             </form>
 
             <Cards search={search} />
-            
+            <p>
+                {pageNumbers.map(number => (
+                   <span onClick={async () => {
+                       setSearch(search.page = number)
+                       const res = await axios.get(`https://api.github.com/search/repositories?q=${search.searchTerm}&page=${search.page}&per_page=${perPage}`)
+                       setSearch({...search, data: res.data})
+                    }
+                   }>
+                       {number}
+                    </span> 
+                ))}
+
+            </p>
         </div>
     )}
 

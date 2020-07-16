@@ -1,0 +1,33 @@
+.card-wrapper {
+  position: relative;
+  width: 40%;
+  height: 300px;
+  border: 1px solid black;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.repo-card {
+  width: 100%;
+  height: 100%;
+}
+
+.repo-card h3 {
+  text-decoration: none;
+}
+
+.img-div {
+  min-width: 500px;
+  background-color: green;
+  border: 1px solid blue;
+}
+
+.results {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=Cards.css.map */

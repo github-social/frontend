@@ -1,0 +1,29 @@
+.card-wrapper {
+    position: relative;
+    width: 40%;
+    height: 300px;
+    border:1px solid black;
+    margin: auto;
+    margin-bottom: 20px;
+    
+}
+
+.repo-card{
+    width: 100%;
+    height: 100%;
+    h3{
+      text-decoration: none;
+    }
+}
+.img-div{
+    min-width: 500px;    
+    background-color: green;
+    border: 1px solid blue;
+}
+
+
+.results{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
