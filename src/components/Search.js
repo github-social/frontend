@@ -1,63 +1,74 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
+import Cards from './Cards';
+
 const Search = () => {
 
-    const [repos, setRepos] = useState({})
     const [search, setSearch] = useState({
         searchTerm: '',
-        page: 3
+        page: 1,
+        dropDown: 'repos',
+        data: {}
     })
 
     const handleChange = e => {
         setSearch({
-            [e.target.name]: e.target.value
+            ...search,
+            [e.target.name]: e.target.value,
         })
     }
-
+    const dropDownChange = e => {
+        setSearch({
+            ...search,
+            dropDown: e.target.value,
+            searchTerm: '',
+            data: {}
+        })
+    }
     const handleSubmit = e => {
         e.preventDefault()
-        axios.get(`https://api.github.com/search/repositories?q=${search.searchTerm}&page=${search.page}&per_page=10`)
-        .then(res => {
-            setRepos(res);
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        search.dropDown === 'repos' ? 
+            // check whether dropdown is repos or users, 
+            // and then make a call to their respective URL's
+
+            axios.get(`https://api.github.com/search/repositories?q=${search.searchTerm}&page=${search.page}&per_page=10`)
+            .then(res => {
+                setSearch({...search, data: res.data});
+            })
+            .catch(error => {
+                console.log(error)
+            }) :
+            
+            axios.get(`https://api.github.com/search/users?q=${search.searchTerm}&page=${search.page}&per_page=10`)
+            .then(res => {
+                setSearch({...search, data: res.data});
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     
     return(
         <div>
             <form onSubmit={handleSubmit}>
+                <select name='dropDown' onChange={dropDownChange}>
+                    <option value="repos">Repos</option>
+                    <option value="users">Users</option>
+                </select>
                 <input 
-                type='text'
-                placeholder='search repo'
-                onChange={handleChange}
-                value={search.searchTerm}
-                name='searchTerm'
+                    name='searchTerm'
+                    type='text'
+                    placeholder='search repo'
+                    onChange={handleChange}
+                    value={search.searchTerm}
                 />
                 <button type='submit'>search yo</button>
             </form>
+
+            <Cards search={search} />
             
-            {console.log(repos)}
-
-            <div>
-                {repos.data?.items?.map(item => (
-
-                    <div key={item.id}>
-                        <p>{item.owner.login}</p>
-                        <p>{item.created_at}</p>
-                        <p>{item.name}</p>
-                        <p>{item.description}</p>
-                        <p>{item.language}</p>
-                        <p>{item.updated_at}</p>
-                        <p>{item.url}</p>
-                    </div>
-                ))}
-            </div>
-
         </div>
-    )
-}
+    )}
 
 export default Search;

@@ -16,9 +16,6 @@ function App() {
 
   return (
     <div className="App">
-      {console.log(call)}
-
-      {/* <p>{call.full_name}</p> */}
       <Search/>
     </div>
   );
