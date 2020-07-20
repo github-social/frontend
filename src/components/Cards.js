@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Cards = ({ search }) => {
-    return(
+    return (
 
         <div>
-            {search.dropDown === 'repos' ? 
+            {search.dropDown === 'repos' ?
                 search.data?.items?.map(item => (
                     <div className="repo-card" key={item.id}>
                         <p><a href={item.owner.html_url}>{item.owner.login}</a></p>
@@ -24,9 +24,10 @@ const Cards = ({ search }) => {
                         {/* link to user */}
                     </div>
                 ))
-        }
+            }
         </div>
-    )}
+    )
+}
 
 
 export default Cards;
