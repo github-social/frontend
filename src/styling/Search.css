@@ -1,0 +1,35 @@
+.search {
+  margin: 20px;
+}
+
+.search select {
+  padding: 2px 10px;
+  font-size: large;
+}
+
+.search input {
+  padding: 2px 10px;
+  font-size: large;
+}
+
+.search button {
+  padding: 2px 10px;
+  font-size: large;
+}
+
+.numbers-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.numbers-wrapper .page-numbers {
+  border: 1px solid black;
+  border-radius: 5px;
+  min-width: 30px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: large;
+}
+/*# sourceMappingURL=Search.css.map */

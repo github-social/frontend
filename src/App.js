@@ -5,15 +5,6 @@ import './App.css';
 
 function App() {
 
-  const [call, setCall] = useState({})
-
-  useEffect(() => {
-    axios.get("https://api.github.com/search/repositories?q=calculator&page=1&per_page=10")
-      .then(response => {
-        setCall(response.data)
-      })
-  },[])
-
   return (
     <div className="App">
       <Search/>
