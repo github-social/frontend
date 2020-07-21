@@ -19,8 +19,8 @@ const Search = () => {
     // for pagination
     const pageNumbers = []
     for (let i = 1; i <= numPages; i++) {
-        if (numPages > 100) {
-            numPages = 100;
+        if (numPages > 10) {
+            numPages = 10;
         }
         pageNumbers.push(i)
     }
@@ -39,8 +39,8 @@ const Search = () => {
             data: {}
         })
     }
-    const handleSubmit = e => {
-        e.preventDefault()
+
+    const getData = () => {
         search.dropDown === 'repos' ?
             // check whether dropdown is repos or users, 
             // and then make a call to their respective URL's
@@ -63,10 +63,15 @@ const Search = () => {
                 })
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        getData()
+    }
+
     return (
         <div>
-            <p>Wellcome to Github Social!</p>
-            <p>Search through the Github API to find Repositories or Users</p>
+            <h3>Welcome to Github Social!</h3>
+            <h5>Search through the Github API to find Repositories or Users</h5>
             <div className="search">
                 <form onSubmit={handleSubmit}>
                     <select name='dropDown' onChange={dropDownChange}>
@@ -87,10 +92,9 @@ const Search = () => {
             <Cards search={search} />
             <div className="numbers-wrapper">
                 {pageNumbers.map(number => (
-                    <div className="page-numbers" onClick={async () => {
+                    <div key={number} className={`page-numbers ${search.page === number ? "active" : ""}`} onClick={async () => {
                         setSearch(search.page = number)
-                        const res = await axios.get(`https://api.github.com/search/repositories?q=${search.searchTerm}&page=${search.page}&per_page=${perPage}`)
-                        setSearch({ ...search, data: res.data })
+                        getData()
                     }
                     }>
                         {number}

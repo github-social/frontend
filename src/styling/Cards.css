@@ -1,12 +1,14 @@
 .card-wrapper {
   position: relative;
+  max-width: 350px;
   width: 40%;
-  height: 50vh;
-  border: 1px solid black;
+  height: 60vh;
   margin: auto;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#a09e9e), to(#e7e7e7));
+  background-image: linear-gradient(#a09e9e, #e7e7e7);
 }
 
 .repo-card {
@@ -14,8 +16,31 @@
   height: 100%;
 }
 
-.repo-card h3 {
+.repo-card h3 a {
   text-decoration: none;
+  color: black;
+}
+
+.repo-card h5 {
+  color: grey;
+  font-size: xx-small;
+  font-weight: normal;
+}
+
+.repo-card h5 a {
+  color: black;
+  -webkit-transition: .2s;
+  transition: .2s;
+  text-decoration: none;
+  font-size: large;
+}
+
+.repo-card h5 a:hover {
+  color: black;
+  font-size: x-large;
+  font-weight: bold;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .repo-card .dates {
@@ -24,12 +49,40 @@
   display: flex;
 }
 
+.repo-card button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  -webkit-transition: .2s;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.repo-card button:hover {
+  font-size: large;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.repo-card button a {
+  text-decoration: none;
+  color: black;
+}
+
 .img-div {
   position: relative;
   width: 100px;
   border-radius: 1000px;
   margin: auto;
   margin-top: 20px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.img-div:hover {
+  width: 120px;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .img-div img {

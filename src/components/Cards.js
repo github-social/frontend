@@ -10,19 +10,22 @@ const Cards = ({ search }) => {
             {search.dropDown === 'repos' ?
 
                 search.data?.items?.map(item => (
-                    <div className="card-wrapper">
-                        <div className="repo-card" key={item.id}>
+                    <div key={item.id} className="card-wrapper">
+                        <div className="repo-card">
                             <div className='img-div'>
-                                <img src={item.owner.avatar_url} />
+                                <a href={item.owner.html_url}>
+                                    <img src={item.owner.avatar_url} />
+                                </a>
                             </div>
-                            <h3>Repository name: <a href={item.html_url}>{item.name}</a></h3>
+                            <h5><a href={item.owner.html_url}>{item.owner.login}</a></h5>
+                            <h3>Repo name: <a href={item.html_url}>{item.name}</a></h3>
                             {/* link to project */}
-                            <p>Created by: <a href={item.owner.html_url}>{item.owner.login}</a></p>
                             {/* link to user */}
                             <div className="dates">
                                 <p>Created on: {dayjs(item.created_at).format('M/D/YYYY')}</p>
                                 <p>Last updated on: {dayjs(item.updated_at).format('M/D/YYYY')}</p>
                             </div>
+                            <button><a href={item.html_url}>View Repo</a></button>
                             <p>Description: {item.description}</p>
                             <p>Language: {item.language}</p>
                         </div>
@@ -30,7 +33,7 @@ const Cards = ({ search }) => {
                 )) :
 
                 search.data?.items?.map(item => (
-                    <div className="card-wrapper">
+                    <div key={item.id} className="card-wrapper">
                         <div className="repo-card" key={item.id}>
                             <div className='img-div'>
                                 <img src={item.avatar_url} />

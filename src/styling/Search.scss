@@ -15,7 +15,10 @@
 }
 .numbers-wrapper{
     display: flex;
-    width: 100%;
+    width: 80%;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 20px;
     .page-numbers{
         border: 1px solid black;
         border-radius: 5px;
@@ -23,5 +26,20 @@
         margin: 5px;
         cursor: pointer;
         font-size: large;
+        background-image: linear-gradient(rgb(160, 158, 158), rgb(231, 231, 231));
+        transition: 0.3s;
+        &:hover{
+            background-image: linear-gradient(rgb(160, 158, 158), rgb(160, 158, 158));
+            transition: 0.3s;
+        }
+    }
+    .active{
+        background-image: linear-gradient(rgb(0, 0, 0), rgb(92, 92, 92));
+        color: white;
+        transition: 3s;
+        &:hover{
+            background-image: linear-gradient(rgb(0, 0, 0), rgb(92, 92, 92));
+            transition: .3s;
+        }
     }
 }

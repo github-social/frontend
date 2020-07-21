@@ -21,7 +21,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: 80%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 .numbers-wrapper .page-numbers {
@@ -31,5 +35,31 @@
   margin: 5px;
   cursor: pointer;
   font-size: large;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#a09e9e), to(#e7e7e7));
+  background-image: linear-gradient(#a09e9e, #e7e7e7);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.numbers-wrapper .page-numbers:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#a09e9e), to(#a09e9e));
+  background-image: linear-gradient(#a09e9e, #a09e9e);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.numbers-wrapper .active {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(#5c5c5c));
+  background-image: linear-gradient(black, #5c5c5c);
+  color: white;
+  -webkit-transition: 3s;
+  transition: 3s;
+}
+
+.numbers-wrapper .active:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(#5c5c5c));
+  background-image: linear-gradient(black, #5c5c5c);
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 /*# sourceMappingURL=Search.css.map */

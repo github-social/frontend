@@ -1,12 +1,14 @@
 .card-wrapper {
     position: relative;
+    max-width: 350px;
     width: 40%;
-    height: 50vh;
-    border:1px solid black;
+    height: 60vh;
+    // border:1px solid grey;
     margin: auto;
     margin-bottom: 20px;
     padding:10px;
     border-radius: 5px;
+    background-image: linear-gradient(rgb(160, 158, 158), rgb(231, 231, 231));
     
 }
 
@@ -14,10 +16,46 @@
     width: 100%;
     height: 100%;
     h3{
-      text-decoration: none;
+        a{
+            text-decoration: none;
+            color: black
+        }
+    }
+    h5{
+        color: grey;
+        font-size: xx-small;
+        font-weight: normal;
+        a{
+            color: black;
+            transition: .2s;
+            text-decoration: none;
+            font-size: large;
+            &:hover{
+                color:black;
+                font-size: x-large;
+                font-weight: bold;
+                transition: .2s;
+            }
+        }
+
     }
     .dates{
         display: flex;
+    }
+    button{
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        transition: .2s;
+        cursor: pointer;
+        &:hover{
+            font-size: large;
+            transition: .2s;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
     }
 }
 .img-div{
@@ -26,6 +64,11 @@
     border-radius: 1000px;
     margin: auto;
     margin-top: 20px;
+    transition: .2s;
+    &:hover{
+        width:120px;
+        transition: .2s;
+    }
 
     img {
         max-width: 100%;
