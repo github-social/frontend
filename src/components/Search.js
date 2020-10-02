@@ -70,8 +70,7 @@ const Search = () => {
 
     return (
         <div>
-            <h3>Welcome to Github Social!</h3>
-            <h5>Search through the Github API to find Repositories or Users</h5>
+            <h3 className="title">Welcome to Github Social!</h3>
             <div className="search">
                 <form onSubmit={handleSubmit}>
                     <select name='dropDown' onChange={dropDownChange}>
@@ -88,6 +87,7 @@ const Search = () => {
                     <button type='submit'>Search</button>
                 </form>
             </div>
+            <h5 className="description">Search through the Github API to find Repositories or Users</h5>
 
             <Cards search={search} />
             <div className="numbers-wrapper">

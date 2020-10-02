@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;;
+  background-color: rgb(179, 206, 183);
+  width: 80%;
+  margin: auto;
+  border-radius: 5px;
+  filter: drop-shadow(10px 10px 10px #575757);
 }
 
 .App-logo {
@@ -11,6 +17,15 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.title{
+  font-size: xx-large;
+  margin-top: 20px;
+}
+
+.description{
+  font-size: medium;
 }
 
 .App-header {
